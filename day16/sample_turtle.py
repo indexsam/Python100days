@@ -13,7 +13,7 @@ my_screen.exitonclick()
 my_screen.title("my turtle")
 
 
-# from prettytable import Prettytable.
+# from prettytable import PrettyTable.
 
 # tab = PrettyTable()
 
