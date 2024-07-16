@@ -4,6 +4,9 @@ from tkinter import *
 from tkinter import messagebox
 import random
 # import pyperclip
+
+# PS> pyinstaller  --onefile --noconsole main.py  (create exec file) https://www.youtube.com/watch?v=bEBMo52OCis
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate():
     
