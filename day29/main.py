@@ -3,7 +3,7 @@
 from tkinter import *
 from tkinter import messagebox
 import random
-# import pyperclip
+import pyperclip
 
 # PS> pyinstaller  --onefile --noconsole main.py  (create exec file) https://www.youtube.com/watch?v=bEBMo52OCis
 
@@ -31,7 +31,7 @@ def generate():
 
     password_entry.insert(0, pwd)
     
-    # pyperclip.copy(pwd)
+    pyperclip.copy(pwd)
 
 # print(f"Your password is: {password}")
 # ---------------------------- SAVE PASSWORD ------------------------------- #
