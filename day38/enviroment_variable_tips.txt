@@ -1,0 +1,19 @@
+
+First, you want to install the correct dotenv module like this: pip install python-dotenv (check the PyPI page)
+Place your variables in a .env file format, like this: API_ID ="your-api-id" ...
+Import the load_dotenv function in your main.py: from dotenv import load_dotenv
+Load the .env file (ENV_FILE) like this ->  load_dotenv()
+Finally, you can access the variables using the os module like this: API_ID = os.getenv("API_ID")
+
+import os
+from dotenv import load_dotenv
+
+# Load the .env file
+load_dotenv()
+
+# Read the environment variables
+app_id = os.getenv('APP_ID')
+api_key = os.getenv('API_KEY')
+
+print(f'APP_ID: {app_id}')
+print(f'API_KEY: {api_key}')
