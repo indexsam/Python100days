@@ -7,6 +7,8 @@ import os
 # load the .env file
 load_dotenv()
 
+# sites : https://dashboard.sheety.co/,  https://developer.nutritionix.com/admin
+
 
 APP_ID=os.getenv("APP_ID")
 API_KEY2=os.getenv("API_KEY2")
