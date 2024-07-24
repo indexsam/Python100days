@@ -33,7 +33,7 @@ headers={
 response = requests.post(f"{DOMAIN}{ENDPOINT}", json=input_params, headers=headers)
 response.raise_for_status()
 data = response.json()
-
+print("json output from nutiren......", data)
 #  working with google sheets via sheety 
 
 import datetime as dt
