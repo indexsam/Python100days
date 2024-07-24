@@ -44,7 +44,7 @@ class FlightData:
             return FlightData("N/A", "N/A", "N/A", "N/A", "N/A", "N/A")
 
         # Data from the first flight in the json
-        stops = len(first_flight["itineraries"][0]["segments"])
+        n_stops = len(first_flight["itineraries"][0]["segments"])
         int_dest = len(first_flight["itineraries"][0]["segments"])-1
         first_flight = data['data'][0]
         lowest_price = float(first_flight["price"]["grandTotal"])
@@ -54,7 +54,7 @@ class FlightData:
         return_date = first_flight["itineraries"][1]["segments"][0]["departure"]["at"].split("T")[0]
 
         # Initialize FlightData with the first flight for comparison
-        cheapest_flight = FlightData(lowest_price, origin, destination, out_date, return_date, stops)
+        cheapest_flight = FlightData(lowest_price, origin, destination, out_date, return_date, n_stops)
 
         for flight in data["data"]:
             price = float(flight["price"]["grandTotal"])
@@ -64,7 +64,7 @@ class FlightData:
                 destination = flight["itineraries"][0]["segments"][int_dest]["arrival"]["iataCode"]
                 out_date = flight["itineraries"][0]["segments"][0]["departure"]["at"].split("T")[0]
                 return_date = flight["itineraries"][1]["segments"][0]["departure"]["at"].split("T")[0]
-                cheapest_flight = FlightData(lowest_price, origin, destination, out_date, return_date, stops)
+                cheapest_flight = FlightData(lowest_price, origin, destination, out_date, return_date, n_stops)
                 print(f"Lowest price to {destination} is £{lowest_price}")
 
         return cheapest_flight
