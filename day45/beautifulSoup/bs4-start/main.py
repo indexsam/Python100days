@@ -10,7 +10,16 @@ soup = BeautifulSoup(data, "html.parser")
 
 print(soup.title)
 
+'''
 val = soup.select_one(".titleline a")
 print(val.getText())
 print(val.get("href"))
 print(soup.select_one(".score").getText())
+'''
+
+
+
+val = soup.select_one(".title span a")
+print(val)
+score = soup.find(class_="score")
+print(score)
