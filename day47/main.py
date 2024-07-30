@@ -19,7 +19,7 @@ headers ={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/53
 response = requests.get(URL_LIVE, headers=headers)
 data = response.text
 
-soup = BeautifulSoup(data, "html.parser")
+soup = BeautifulSoup(data, "html.parser")  # "lxml" option 
 print(soup.title.getText())
 
 
@@ -34,9 +34,11 @@ price_raw = float(price)
 # print(price_raw)
 
 
-
+link_domain="https://amazon.com"
 url = soup.find(id="bylineInfo")
 link = url.get("href")
+link =link_domain +link
+
 
 title = soup.find(id="productTitle")
 msg = title.getText().strip()
