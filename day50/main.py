@@ -23,9 +23,9 @@ chrome_options.add_experimental_option('detach', True)
 
 
 driver = webdriver.Chrome(options=chrome_options)
-driver.get(URL3)
+driver.get(URL4)
 ##---------------------------------------
-'''
+
 def get_SpeedData():
     download = driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[1]/div/div[2]/span').text
     upload = driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[2]/div/div[2]/span').text
@@ -39,8 +39,11 @@ time.sleep(60)
 down, up = get_SpeedData()
 
 print(f"Download speed: {down} and Upload speed: {up}")
-'''
+
+time.sleep(10)
+driver.quit()
 #----------------------------------------------------------
+'''
 time.sleep(30)
 inp = driver.find_element(By.TAG_NAME, "input")
 inp.send_keys("samuelobad76190")
@@ -61,7 +64,7 @@ password = driver.find_elements(By.TAG_NAME, "button")
 print("number of buttons password: ", len(password))
 password[4].click() # login button
 
-
+'''
 
 #--------------------Archive-------------------
 '''

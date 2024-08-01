@@ -39,13 +39,33 @@ time.sleep(60)
 down, up = get_SpeedData()
 
 print(f"Download speed: {down} and Upload speed: {up}")
+
+time.sleep(10)
+driver.quit()
 '''
 #----------------------------------------------------------
+
 time.sleep(30)
 inp = driver.find_element(By.TAG_NAME, "input")
 inp.send_keys("samuelobad76190")
 
+# -------Possible option---------
 
+# button = driver.find_element(by=By.XPATH, value="//button[contains(text(), 'Next')]")
+# button.click()
+
+
+# Using button text (out of the box)
+
+buttons = driver.find_elements(By.TAG_NAME, 'button')
+next_button_custom = None
+for button in buttons:
+    if 'Next' in button.text:
+        next_button_custom = button
+        break
+next_button_custom.click()
+
+'''
 next = driver.find_elements(By.TAG_NAME, "button")
 print("number of buttons username: ", len(next))
 next[3].click() # next button
@@ -61,7 +81,7 @@ password = driver.find_elements(By.TAG_NAME, "button")
 print("number of buttons password: ", len(password))
 password[4].click() # login button
 
-
+'''
 
 #--------------------Archive-------------------
 '''
