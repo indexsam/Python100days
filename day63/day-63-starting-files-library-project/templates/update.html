@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+    
+{% block title %} update {% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+   <div class="jumbotron bg-body-tertiary">
+
+    <h1>Book Name: {{ title }}</h1>
+    <h5>Current Rating: {{ rating }} </h5>
+    <form action="{{url_for('update_action', id=id)}}" method="POST">
+      
+      <br>
+      <input type="text" name="rating" /> <br>
+      <p></p>
+      <button class="btn btn-primary" type="submit">Update Rating</button> <br>
+    </form>
+    </div>
+  </div>
+ {% endblock %}

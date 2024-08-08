@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+    
+{% block title %} Add {% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+   <div class="jumbotron bg-body-tertiary">
+    <form action="{{url_for('add')}}" method="POST">
+      <label>Book Name</label> <br>
+      <input type="text" name="title"/> <br>
+      <label>Book Author</label> <br>
+      <input type="text"  name="author"/> <br>
+      <label>Rating</label> <br>
+      <input type="text" name="rating" /> <br>
+      <p></p>
+      <button class="btn btn-primary" type="submit">Add Book</button> <br>
+    </form>
+    </div>
+  </div>
+ {% endblock %}
