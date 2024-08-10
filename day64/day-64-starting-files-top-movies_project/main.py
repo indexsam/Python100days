@@ -79,38 +79,8 @@ headers = {
 
 Image_source="https://image.tmdb.org/t/p/w500"
  
-# title  (user input)
-# year *
-# description *
-# rating *
-# ranking
-# review
-# img_url *    
 
-# @app.route("/add", methods=["GET","POST"])
-# def add():
 
-#     if request.method == "POST":
-      
-#         # CREATE RECORD
-#         with app.app_context():
-#             new_book = Book(title=request.form["title"], author=request.form["author"], rating=request.form["rating"])
-#             db.session.add(new_book)
-#             db.session.commit()
-#             print(new_book)
-#         return redirect(url_for('home'))
-#     return render_template("add.html")
-'''
-curl --request GET \
-     --url 'https://api.themoviedb.org/3/search/movie?query=the%20matrix&include_adult=false&language=en-US&page=1' \
-     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2E5MzY0NjRlNjJhMTRkYWRiNjA3YjMxNDY4Mzg1ZCIsIm5iZiI6MTcyMzIyNjY3OS44ODk4NjcsInN1YiI6IjY2YjY1NjcxN2Y4ODBlY2NjOTllYmRhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mBvN21UhmQ2PsfAGp4uEdX6RwsMgCUAiJzOcdV0r1J4' \
-     --header 'accept: application/json'
-
-curl --request GET \
-     --url 'https://api.themoviedb.org/3/movie/603?language=en-US' \
-     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2E5MzY0NjRlNjJhMTRkYWRiNjA3YjMxNDY4Mzg1ZCIsIm5iZiI6MTcyMzIyNjY3OS44ODk4NjcsInN1YiI6IjY2YjY1NjcxN2Y4ODBlY2NjOTllYmRhMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mBvN21UhmQ2PsfAGp4uEdX6RwsMgCUAiJzOcdV0r1J4' \
-     --header 'accept: application/json'
-'''
 @app.route("/")
 def home():
     all_movies = db.session.execute(db.select(Movie).order_by(desc(Movie.rating))).scalars() # .all() 
@@ -183,9 +153,7 @@ def addForm_action2(id):
             db.session.commit()
         latest_movie = db.session.execute(db.select(Movie).order_by(desc(Movie.id))).scalars().first()
         return redirect(url_for('update_form', id=latest_movie.id))
-        
-        
-        
+
 
 
 
