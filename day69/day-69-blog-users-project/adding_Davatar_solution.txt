@@ -1,0 +1,43 @@
+Assuming Davater loads without any error using requirements.txt recommendations
+
+main.py 
+
+# There should be an import statement up top
+from flask_gravatar import Gravatar
+
+# For adding profile images to the comment section
+gravatar = Gravatar(app,
+                    size=100,
+                    rating='g',
+                    default='retro',
+                    force_default=False,
+                    force_lower=False,
+                    use_ssl=False,
+                    base_url=None)
+
+post.html
+
+<!-- Comments Area -->
+        <!-- Load the CKEditor -->
+        {{ ckeditor.load() }}
+        <!-- Configure it with the name of the form field from CommentForm -->
+        {{ ckeditor.config(name='comment_text') }}
+        <!-- Create the wtf quick form from CommentForm -->
+        {{ render_form(form, novalidate=True, button_map={"submit": "primary"}) }}
+        <div class="comment">
+          <ul class="commentList">
+            <!-- Show all comments -->
+            {% for comment in post.comments: %}
+            <li>
+              <div class="commenterImage">
+                <img
+                  src="{{ comment.comment_author.email | gravatar }}"
+                />
+              </div>
+              <div class="commentText">
+                {{comment.text|safe}}
+                <span class="sub-text">{{comment.comment_author.name}}</span>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>

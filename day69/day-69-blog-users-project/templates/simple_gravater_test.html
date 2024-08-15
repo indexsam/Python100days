@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravatar Example</title>
+
+    <style>
+        /* CSS to make the image round */
+        .round-image {
+            border-radius: 50%;  /* Makes the image round */
+            width: 50px;        /* Set the width */
+            height: 50px;       /* Set the height */
+        }
+    </style>
+            
+</head>
+<body>
+    <h1>User Gravatar</h1>
+    <!-- Display the Gravatar image -->
+    <img src="{{ gravatar_url }}" alt="User Gravatar" class="round-image">
+</body>
+</html>

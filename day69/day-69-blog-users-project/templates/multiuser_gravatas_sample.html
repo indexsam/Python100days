@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Avatars</title>
+    <style>
+        .round-image {
+            border-radius: 50%;  /* Makes the image round */
+            width: 100px;        /* Set the width */
+            height: 100px;       /* Set the height */
+        }
+    </style>
+</head>
+<body>
+    <h1>User Avatars</h1>
+    <ul>
+        {% for user in users %}
+        <li>
+            <img src="{{ user.avatar_url }}" alt="{{ user.email }}'s Avatar" class="round-image">
+            <p>{{ user.email }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

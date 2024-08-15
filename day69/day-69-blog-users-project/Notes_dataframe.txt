@@ -1,0 +1,21 @@
+CREATING THE data_backup.csv FILE
+
+import pandas as pd
+@app.route('/')
+def get_all_posts():
+    result = db.session.execute(db.select(BlogPost))
+    posts = result.scalars().all()
+
+    # Convert to list of dictionaries
+    blog_posts_dict = [post.__dict__ for post in posts]
+    
+    # Remove internal SQLAlchemy state
+    for post in blog_posts_dict:
+        post.pop('_sa_instance_state', None)
+    
+    # Convert to DataFrame
+    df = pd.DataFrame(blog_posts_dict)
+    print(df)
+    
+    print("User->", current_user)
+    return render_template("index.html", all_posts=posts)
